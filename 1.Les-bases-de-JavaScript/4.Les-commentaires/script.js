@@ -1,9 +1,12 @@
 /* Les commentaires sur une ligne */
-
+// const userName = "";
 
 
 /* Les commentaires sur plusieurs lignes */
-
+/*
+userName = "John";
+console.log(userName);
+ */
 
 
 

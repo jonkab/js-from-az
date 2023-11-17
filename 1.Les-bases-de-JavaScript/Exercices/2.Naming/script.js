@@ -1,25 +1,28 @@
 /* 
     1. Naming. 
     
-    Sans décommenter les variables ci-dessous, devinez celles qui ont un nom non-réglementaire, c'est à dire celles qui vont provoquer une erreur lors de l'exécution de votre code par le navigateur.
+    Sans décommenter les variables ci-dessous, devinez celles qui ont un nom
+    non-réglementaire, c'est-à-dire celles qui vont provoquer une erreur lors
+    de l'exécution de votre code par le navigateur.
     Rajoutez un commentaire à côté de chaque variable //correct ou //faux.
 
 */
 
-    // LET UsErNaMe = "John";     
-    // const _id = 99;
-    // let class = true;
-    // const isAdult = true;
-    // const $card = {name: "card", content: "Lorem ipsum"};
-    // let 1452 = 1452;
-    // const sum41 = "music";
+    // LET UsErNaMe = "John";     //faux
+    // const _id = 99;//correct - On peut commencer le nom d'une variable avec un underscore
+    // let class = true;//faux - class étant un mot réservé il ne peut être utilisé
+    // const isAdult = true;//correct
+    // const $card = {name: "card", content: "Lorem ipsum"};//correct - Même si on évite de le faire
+    // let 1452 = 1452;//faux
+    // const sum41 = "music";//correct
 
 
 
 /* 
     2. Trouver un bon nom; 
 
-    Essayez de trouver un bon nom à ces variables, puis déclarez-les avec ce nom et la valeur correspondante.
+    Essayez de trouver un bon nom à ces variables, puis déclarez-les avec ce nom et
+    la valeur correspondante.
 
     A. Une let qui retourne un booléen en fonction de la présence d'un joueur en ligne.
     B. Une let qui retourne un booléen en fonction des droits d'un rôle "modérateur".
@@ -37,29 +40,29 @@
 */
 
 //A.
-// = true;
+//let isOnline = true;
 //B. 
-// = false;
+//let isModerateAccess = false;
 //C.
-// = [2450,1850,4712,3254,2000,1578]
+//const salaries = [2450,1850,4712,3254,2000,1578]
 //D. 
 /*
- = {
+let currentWeather = {
     temperature : 27,
     humidity: 45,
     wind: 14
 }
 */
 // E
-// = 4251
+//let scrollHeight = 4251 //let pageHeight fonctionne aussi
 // F
-// = "Vous ne pouvez pas faire ça"
+// const alertMessage= "Vous ne pouvez pas faire ça"
 // G
-/* function xxx(){}*/
+/* function getUserInfo(){}*/
 // H
-/* function xxx(){}*/
+/* function isAdult(){}*/
 // I
-/* function xxx(){}*/
+/* function createButton(){}*/
 // J
-/* function xxx(){}*/
+/* function addLoader(){}*/
 

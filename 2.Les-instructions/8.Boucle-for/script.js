@@ -88,3 +88,58 @@ for (let i = 1; i <= 3; i++) {
     //après le continue, car si je fais mes opérations avant, la condition pour le cas 2
     // ne sera pas appliqué.
 }
+
+
+console.log("------------- EXERCICES --------------");
+console.log("------------- EXERCICE [1] --------------");
+/**
+* Exercice 1 : Boucle avec `break`
+* Utilisez une boucle pour trouver le premier nombre pair dans le tableau et affichez-le.
+* Utilisez l'instruction break pour sortir de la boucle une fois que le nombre pair est trouvé.
+*/
+let nombres1 = [1, 3, 5, 6, 7, 8, 9];
+
+// Réponse exercice 1
+for (i = 0; i < nombres1.length; i++) {
+    if (nombres1[i]%2 === 0) {
+        console.log(nombres1[i]);
+        break;
+    }
+}
+
+console.log("------------- EXERCICE [2] --------------");
+/**
+* Exercice 2 : Boucle avec `continue`
+* Utilisez une boucle pour afficher tous les nombres du tableau.
+* Utilisez l'instruction continue pour sauter l'affichage si le nombre est pair.
+ */
+let nombres2 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// Réponse exercice 2
+for (i = 0; i < nombres2.length; i++) {
+    if (nombres2[i]%2 === 0) {
+        continue;
+    }
+    console.log(nombres2[i]);
+}
+
+console.log("------------- EXERCICE [3] --------------");
+/**
+* Exercice 3 : Utilisation combinée de `break` et `continue`
+* Utilisez une boucle pour afficher tous les nombres dans le tableau.
+* Si le nombre est pair, utilisez continue pour passer au nombre suivant sans l'afficher.
+* Si le nombre est égal à 7, utilisez break pour sortir de la boucle immédiatement.
+*/
+let nombres3 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// Réponse exercice 3
+for (i = 0; i < nombres3.length; i++) {
+    if (nombres3[i]%2 === 0) {
+        continue;
+    }
+
+    if (nombres3[i] === 7) {
+        console.log(nombres3[i]);
+        break;
+    }
+}

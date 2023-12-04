@@ -3,15 +3,20 @@
 
     Loggez l'expression ternaire suivante dans la console.
 
-    Si squareFeet est strictement supérieur à 70, retournez "Large", sinon retournez "Small/Medium".
+    Si squareFeet est strictement supérieur à 70, retournez "Large",
+    sinon retournez "Small/Medium".
 */
 
 const squareFeet = 100;
 
+console.log(squareFeet > 70 ? "Large" : "Small/Medium");
+
 /* 
     2. Panique à la librairie.
 
-    C'est la crise du papier, il faut augmenter de 1€ le prix de tous les livres(objets) de la bibliothèque(library).
+    C'est la crise du papier, il faut augmenter de 1€ le prix de tous les livres(objets)
+    de la bibliothèque(library).
+
     Utilisez une boucle for ou for...of pour ça.
 */
 const library = [
@@ -27,4 +32,16 @@ const library = [
     name: "The old man and the sea",
     price: 5
   }
-]
+];
+
+
+for (let i = 0; library.length > i; i++) {
+  library[i].price++;
+}
+
+/**
+for (const books of library) {
+  books.price += 1;
+}
+*/
+console.log(library);

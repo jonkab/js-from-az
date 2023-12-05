@@ -1,7 +1,8 @@
 /*  
     1. Les fonctions callback.
 
-    Une fonction peut recevoir une autre fonction en argument, on appelle ces fonctions des "fonctions callback".
+    Une fonction peut recevoir une autre fonction en argument,
+    on appelle ces fonctions des "fonctions callback".
 
 */
 
@@ -35,4 +36,5 @@ function areLegal(arr, callback){
 }
 
 // on peut tester toute sorte d'age.
+console.log(areLegal(database, age => age >= 17));
 console.log(areLegal(database, age => age >= 18));

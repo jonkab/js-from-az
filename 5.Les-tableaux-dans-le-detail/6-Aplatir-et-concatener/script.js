@@ -1,4 +1,5 @@
-/* 
+console.log("------ 1. Array.prototype.concat(arr1,arr2,...) ------");
+/*
     1. Array.prototype.concat(arr1,arr2,...)
 
     Définition: La méthode concat permet de fusionner plusieurs tableaux dans un nouveau tableau qu'elle retourne.
@@ -7,19 +8,27 @@
 
 */
 
-const mathClassoomMarks = [10,12,18,20,8,17]
-const englishClassoomMarks = [5,10,12,14,18,17]
+const mathClassoomMarks = [10,12,18,20,8,17];
+const englishClassoomMarks = [5,10,12,14,18,17];
+
+const mergedMarks = mathClassoomMarks.concat(...englishClassoomMarks);
+
+console.log(mergedMarks);// Retourne -> [10, 12, 18, 20, 8, 17, 5, 10, 12, 14, 18, 17]
+console.log(mathClassoomMarks);// Retourne -> [ 10, 12, 18, 20, 8, 17 ]
 
 
-
+console.log("\n\n------ 2. Array.prototype.flat(depth) ------");
 /* 
     2. Array.prototype.flat(depth)
 
-    Définition: Permet d'aplatir un tableau, c'est à dire de créer un tableau à un seul niveau à partir d'un tableau à plusieurs niveaux.
+    Définition: Permet d'aplatir un tableau, c'est-à-dire de créer un tableau à un seul niveau à partir d'un tableau à plusieurs niveaux.
 
-    Paramètres: profondeur(1 niveau va être aplati par défaut).
+    Paramètres : profondeur(1 niveau va être aplati par défaut).
     
-    Valeur de retour: Un nouveau tableau issu de la concaténation de tous les niveaux du tableau fourni.
+    Valeur de retour : Un nouveau tableau issu de la concaténation de tous les niveaux du tableau fourni.
 */
 
-const arr = [1,2,3,[1,2,3,[1,2,3]]]
+const arr = [1,2,3,[1,2,3,[1,2,3]]];
+
+console.log(arr.flat());// Retourne -> [ 1, 2, 3, 1, 2, 3, [ 1, 2, 3 ] ]
+console.log(arr.flat(2));// Retourne -> [ 1, 2, 3, 1, 2, 3, 1, 2, 3 ]

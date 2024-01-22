@@ -5,12 +5,15 @@
 */
 
 function isBetweenDates(begin, end, test) {
+  return test > begin && test < end
 }
+
 
 console.log(
   isBetweenDates(
     new Date(10, 9, 2004),
     new Date(20, 9, 2004),
-    new Date(14, 9, 2004)
+    new Date(24, 8, 2000)
   )
 )
+

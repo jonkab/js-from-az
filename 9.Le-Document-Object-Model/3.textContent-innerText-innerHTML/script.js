@@ -1,6 +1,8 @@
 /* 
     Ces trois propriétés pratiques se ressemblent, mais il faut bien comprendre leurs différences.
 */
+const container = document.querySelector(".container")
+console.log(container)
 
 
 /* 
@@ -14,8 +16,10 @@
 */
 
     // Rajoute un élément HMTL dans l'élément container.
+    //console.log(container.innerHTML = "<p>J'ai remplacé le contenu titre h1 et le p.</p>")
 
     // Retourne le contenu interne de container.
+    console.log(container.innerHTML)
 
 /* 
     Element : textContent
@@ -24,8 +28,11 @@
     Retournera également le contenu en "visibility: hidden;", contrairement à innerText.
 */
 
-    // Retourne le texte à l'intérieur de container, caché ou pas.
     // Change le texte à l'intérieur de container
+    console.log(container.firstElementChild.textContent = "Texte remplacé")
+
+    // Retourne le texte à l'intérieur de container, caché ou pas.
+    console.log(container.textContent)
 
 
 /* 
@@ -36,7 +43,8 @@
 */
 
     // Retourne seulement le texte visible
-    
+    console.log(container.innerText)
+
 
 
 /* 
@@ -53,6 +61,7 @@
     `<img src='1' onerror='alert("Error loading image")'>`;
 */
 
+//document.body.innerHTML = `<img src='1' onerror='alert("Error loading image")'>`
 
 /* 
     textContent vs innerText

@@ -7,7 +7,21 @@
 
     Valeur de retour : Le noeud cloné.
 */
+const list = document.querySelector(".list")
+const deepListClone = list.cloneNode(true)//Clonage profond
+const simpleListClone = list.cloneNode()//Clonage profond
+console.log(deepListClone)// Retourne ->
+/*
+    <ul class="list">
+        <li class="item">Lorem, ipsum dolor.</li>
+        <li class="item">Lorem, ipsum dolor.</li>
+        <li class="item">Lorem, ipsum dolor.</li>
+        <li class="item">Lorem, ipsum dolor.</li>
+        <li class="item">Lorem, ipsum dolor.</li>
+    </ul>
+*/
 
+console.log(simpleListClone)// Retourne -> <ul class="list"></ul>
 
 
 

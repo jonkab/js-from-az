@@ -17,7 +17,7 @@
     Retourne l'élément en question.
 */
 
-    // document.body.appendChild(document.createElement("input"))
+    document.body.appendChild(document.createElement("input"))
 
 /* 
     2. Element : append(element)
@@ -31,5 +31,5 @@
     Ne retourne rien.
 */
 
-    // document.body.append("test")
-    // document.body.append(document.createElement("input"),document.createElement("input"),document.createElement("input"))
+    document.body.append("test")
+    document.body.append(document.createElement("input"),document.createElement("input"),document.createElement("input"))

@@ -15,14 +15,14 @@ body {
   margin: 0 auto;
   background-color: crimson;
   animation: spin 1s ease-out;
-  transition: background-color 0.4s ease-out;
+  transition: background-color 0.4s 1s ease-out;
 }
 
-/* @keyframes spin {
+@keyframes spin {
   to {
     transform: rotate(360deg)
   }
-} */
+}
 
 .box:hover {
   background-color: green;

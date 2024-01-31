@@ -9,5 +9,26 @@
 body {
   font-family: Roboto, Helvetica, sans-serif;
   padding-top: 75px;
-  background-color: #f1f1f1;
+  background-color: #111;
 }
+
+.card {
+  position: relative;
+  max-width: 350px;
+  margin: 0 auto;
+  background-color: #f1f1f1;
+  padding: 30px 20px;
+  border-radius: 25px;
+}
+
+.copy-clipboard-btn {
+  padding: 5px 12px;
+  border-radius: 9999px;
+  border: 2px solid grey;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+

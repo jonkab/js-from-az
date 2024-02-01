@@ -9,6 +9,23 @@
 </head>
 <body>
 
+    <div class="container">
+        <div class="input-group">
+            <label for="satisfaction-range">Êtes-vous satisfait ?</label>
+
+            <input id="satisfaction-range" class="input-range" type="range" min="1" max="5" list="tickmarks" step="1">
+            <datalist id="tickmarks">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </datalist>
+        </div>
+
+        <p class="emoji-value">🙂</p>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

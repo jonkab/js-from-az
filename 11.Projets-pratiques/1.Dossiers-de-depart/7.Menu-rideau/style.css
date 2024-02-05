@@ -7,4 +7,98 @@
 body {
     font-family: Lato, Helvetica, sans-serif;
     background: #111;
-} 
+    color: #fff;
+    position: relative;
+}
+
+.btn-menu {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    z-index: 1;
+    height: 50px;
+    width: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.line {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #f1f1f1;
+    transition:
+        transform .3s ease-out,
+        opacity .1s ease-out;
+}
+
+.l1 {
+    transform: translateY(-10px);
+}
+.l3 {
+    transform: translateY(10px);
+}
+
+.btn-menu-open .l1 {
+    transform: translateY(0px) rotate(135deg);
+}
+.btn-menu-open .l2 {
+    opacity: 0;
+}
+.btn-menu-open .l3 {
+    transform: translateY(0px) rotate(-135deg);
+}
+
+.menu {
+    position: absolute;
+    left: 0;
+    min-height: 100vh;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    border-right: 1px solid #f1f1f1;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.73, 0.11, 0.67, 0.84);
+}
+
+.menu-open {
+    transform: translate(0);
+}
+
+.menu-list {
+    list-style: none;
+}
+
+.menu-list-item {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.menu-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+
+.title {
+    font-size: 50px;
+    text-align: center;
+    color: #f1f1f1;
+    font-weight: 100;
+}
+.title .bold {
+    font-weight: 600;
+}

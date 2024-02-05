@@ -11,3 +11,55 @@ body {
   background: #111;
 }
 
+.modal-open {
+  position: relative;
+}
+.modal-open .modal {
+  display: flex;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(100, 120, 140, 0.6);
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.modal-container {
+  position: relative;
+  max-width: 500px;
+  padding: 25px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+}
+
+.btn-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: #ff365e;
+  color: #fff;
+  padding: 2px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.parag {
+  padding: 0 12px;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding-top: 100px;
+  text-align: center;
+}
+
+.btn-modal {
+  padding: 8px 15px;
+  cursor: pointer;
+}
+

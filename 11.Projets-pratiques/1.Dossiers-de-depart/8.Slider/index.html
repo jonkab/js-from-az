@@ -8,6 +8,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="slider">
+    <div class="slides">
+        <img src="./ressources/image-1.jpg" alt="Chat tigré beige" class="slider-img" width="640" height="427">
+        <img src="./ressources/image-2.jpg" alt="Chat tigré roux" class="slider-img" width="640" height="427">
+        <img src="./ressources/image-3.jpg" alt="Chat tigré gris" class="slider-img" width="640" height="400">
+    </div>
+
+    <div class="slider-btn">
+        <!--
+            Note liée à la feature perso en plus dans le fichier JS.
+            1- Les boutons ne peuvent pas être dans le même conteneur que les slides
+            car la méthode .scrollIntoView() sert à faire défiler la page de manière à rendre l'élément visible.
+            Le défilement étant horizontale, les boutons défileront aussi horizontalement.
+
+            2- Pour régler le problème, il faudrait mettre les boutons en position fixed mais en faisant ça on ne peut pas être 100% pour l'affichage des boutons
+
+            Solution : La solution est donc de sortir les boutons du conteneur slides et de les mettre en position absolute
+        -->
+        <button id="previous" class="btn-scroll btn-previous" data-action="-1">
+            <img src="ressources/left-arrow.svg" alt="left arrow">
+        </button>
+        <button id="next" class="btn-scroll btn-next" data-action="1">
+            <img src="ressources/right-arrow.svg" alt="right arrow">
+        </button>
+    </div>
+</div>
 
     <script src="script.js"></script>
 </body>

@@ -10,7 +10,7 @@
 /* 
     1. Le format
 
-    On doit entourer les propriétés de guillements.
+    On doit entourer les propriétés de guillemets.
     Une propriété d'objet JSON ne peut pas contenir de fonctions, de date ou d'undefined.
 */
 
@@ -21,7 +21,7 @@
 }
 */
 
-const JSONTextFormat = '{"userName" : "Paul","age": 25}'
+const JSONTextFormat = '{"userName" : "Paul","age": 25}';
 
 
 /*
@@ -29,6 +29,8 @@ const JSONTextFormat = '{"userName" : "Paul","age": 25}'
 */
 
 // La méthode JSON.parse() analyse du texte JSON et retourne l'objet JS correspondant.
+console.log(JSON.parse(JSONTextFormat));// { userName: 'Paul', age: 25 }
+
 
 
 // La méthode JSON.stringify() fait l'inverse, elle transforme un objet JS en JSON.
@@ -36,9 +38,10 @@ const cat = {
   catName: "Toto",
   age: 5, 
   weight: 4 
-}
+};
 
 
+console.log(JSON.stringify(cat))//{"catName":"Toto","age":5,"weight":4}
 
 
 

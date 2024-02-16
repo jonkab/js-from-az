@@ -10,7 +10,29 @@ body {
   color: #f1f1f1;
   padding-top: 75px;
 }
-h2 {
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+h1, h2, p {
   text-align: center;
+}
+
+h1 {
   font-size: 42px;
+  margin-bottom: 15px;
+}
+h2 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 28px;
+}
+
+hr {
+  margin: 40px 0;
 }

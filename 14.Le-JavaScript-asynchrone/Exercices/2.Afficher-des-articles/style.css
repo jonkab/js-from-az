@@ -22,16 +22,31 @@ h1 {
   grid-auto-rows: 100px;
   gap: 20px;
 }
-.item {
+.grid-item {
   padding: 10px;
   box-shadow: 0 5px 5px rgba(0,0,0,0.3);
   display: flex;
   flex-direction: column;
 }
-.item h2 {
+.grid-item h2 {
   font-size: 20px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   margin-bottom: auto;
+}
+
+.error-msg {
+  display: none;
+  max-width: 300px;
+  margin: 0 auto;
+  font-size: 22px;
+  text-align: center;
+  color: #E89536;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.active {
+  display: block;
 }

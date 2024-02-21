@@ -12,10 +12,18 @@ Car.prototype.honk = function(){
 
 const fiat = new Car("500", 20000)
 
-Car.prototype = {}
+Car.prototype = {};
 
-fiat.honk() // ?
+console.log(fiat);
+fiat.honk() // Retourne bien "Honk Honk"
+// Ça fonctionne, car les propriétés de l'instance pointes toujours vers "fiat" parce qu'elle a été créé avant le remplacement du prototype par l'objet vide.
 
+// Donc une nouvelle instance comme "fiat2" ne peut maintenant pas contenir "Honk Honk" mais l'objet vide à la place car "fiat2" a été créé après l'objet vide.
+const fiat2 = new Car("555", 30000);
+//console.log(fiat2.honk()) // Retourne ->
+/*
+  Uncaught TypeError: fiat2.honk is not a function
+*/
 
 /*
     2. Voici deux fonctions constructeur, faites en sorte que Piano hérite du prototype d'Instrument.
@@ -36,3 +44,9 @@ function Piano(type, price){
   this.type = type;
   this.price = price;
 }
+
+Object.setPrototypeOf(Piano.prototype, Instrument.prototype);
+
+const yamaha = new Piano("Piano à queue", 30000);
+
+console.log(yamaha.play());// Play music

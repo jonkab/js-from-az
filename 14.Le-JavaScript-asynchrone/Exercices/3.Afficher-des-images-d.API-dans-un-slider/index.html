@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14 - Exercice 3 : Afficher des images d'une API dans un slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="slider">
+    <div class="slides">
+        <!-- Test placeholder d'image local du slider avant usage de l'API-->
+        <img src="./ressources/image-1.jpg" alt="Chat tigré beige" class="slider-img" width="640" height="427">
+        <img src="./ressources/image-2.jpg" alt="Chat tigré roux" class="slider-img" width="640" height="427">
+        <img src="./ressources/image-3.jpg" alt="Chat tigré gris" class="slider-img" width="640" height="400">
+
+
+    </div>
+
+    <div class="slider-btn">
+        <button id="previous" class="btn-scroll btn-previous" data-action="-1">
+            <img src="ressources/left-arrow.svg" alt="left arrow">
+        </button>
+        <button id="next" class="btn-scroll btn-next" data-action="1">
+            <img src="ressources/right-arrow.svg" alt="right arrow">
+        </button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

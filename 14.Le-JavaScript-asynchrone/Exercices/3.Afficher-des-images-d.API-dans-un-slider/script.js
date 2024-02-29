@@ -1,10 +1,7 @@
-
-
 /*
-    Créer les images
+    Collect images
 */
 const jsonTheCatAPI = "https://api.thecatapi.com/v1/images/search?limit=10";
-const slidesElt = document.querySelector(".slides");
 
 async function getCATImg(url) {
     let imgData;
@@ -28,54 +25,88 @@ async function getCATImg(url) {
 
     if (imgData) {
         creatImg(imgData);
-        slider();
+        sliderNavigation();
     }
 }
 
 getCATImg(jsonTheCatAPI);
 
 
+/*
+    Create images
+*/
+const slidesElt = document.querySelector(".slides");
+
 function creatImg(data) {
-    data.forEach((image, index) => {
+    data.forEach((image) => {
         const imageElt = document.createElement("img");
 
         imageElt.className = "slider-img";
-        imageElt.src = data[index].url;
-        /*
-        divItemElt.innerHTML = `
-            <h2 class="title"></h2>
-            <a href="#">Lire l'image</a>
-        `;
-        divItemElt.querySelector(".title").textContent = `${image.title}`;
-*/
+        imageElt.src = image.url;
+        imageElt.id = image.id;
         slidesElt.appendChild(imageElt);
     });
 }
 
 
 /*
-    Code slider
+    Create slider navigation
 */
-function slider () {
-    const btnScroll = document.querySelectorAll(".btn-scroll");
-    const images = document.querySelectorAll(".slider-img");
-    console.log("images : ", images);
+function sliderNavigation () {
+    let currentIndex = 0;
 
-    btnScroll.forEach(btn => btn.addEventListener("click", handleClickBtnScroll));
-    let index = 0;
-    function handleClickBtnScroll(e) {
-        //console.log(e.target.getAttribute("data-action"))
-        index = index + Number(e.target.getAttribute("data-action"));
-
-        if (index < 0) {
-            index = images.length - 1;
-        }
-        else if (index > images.length - 1) {
-            index = 0;
-        }
-
+    /*
+        Fonction pour faire défiler vers l'image spécifiée
+    */
+    function scrollToImage(index) {
         images[index].scrollIntoView({
             behavior: "smooth"
         });
+    }
+
+    /*
+        Click
+    */
+    const btnScroll = document.querySelectorAll(".btn-scroll");
+    const images = document.querySelectorAll(".slider-img");
+
+    btnScroll.forEach(btn => btn.addEventListener("click", handleClickBtnScroll));
+    function handleClickBtnScroll(e) {
+        currentIndex = currentIndex + Number(e.target.getAttribute("data-action"));
+
+        if (currentIndex < 0) {
+            currentIndex = images.length - 1;
+        }
+        else if (currentIndex > images.length - 1) {
+            currentIndex = 0;
+        }
+
+        scrollToImage(currentIndex);
+    }
+
+    /*
+        Touch
+    */
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    slidesElt.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    }, false);
+
+    slidesElt.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].clientX;
+        handleGesture();
+    }, false);
+
+    function handleGesture() {
+        if (touchEndX < touchStartX) {
+            console.log('Swiped Left');
+            currentIndex = (currentIndex + 1) % images.length;
+        } else if (touchEndX > touchStartX) {
+            console.log('Swiped Right');
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+        }
+        scrollToImage(currentIndex);
     }
 }

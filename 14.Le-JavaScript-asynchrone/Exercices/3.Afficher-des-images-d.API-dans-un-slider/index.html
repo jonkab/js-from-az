@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="slider">
-        <div class="slides">
+    <section class="slider"
+             aria-roledescription="carousel"
+             aria-label="The Cat API images">
+        <div class="slides"
+             aria-live="polite">
         <!-- Test placeholder d'image local du slider avant usage de l'API
             <img src="./ressources/image-1.jpg" alt="Chat tigré beige" class="slider-img" width="640" height="427">
             <img src="./ressources/image-2.jpg" alt="Chat tigré roux" class="slider-img" width="640" height="427">
@@ -19,17 +22,24 @@
         </div>
 
         <div class="slider-btn">
-            <button id="previous" class="btn-scroll btn-previous" data-action="-1">
-                <!--img src="ressources/left-arrow.svg" alt="left arrow"⬅️-->
-                <span class="v-hidden">Previous</span>
+            <button type="button"
+                    id="previous"
+                    class="btn-scroll btn-previous"
+                    data-action="-1"
+                    aria-label="Previous Slide">
+                <span class="visually-hidden">Previous</span>
             </button>
-            <button id="next" class="btn-scroll btn-next" data-action="1">
-                <!--img src="ressources/right-arrow.svg" alt="right arrow"➡️-->
-                <span class="v-hidden">Next</span>
+            <button type="button"
+                    id="next"
+                    class="btn-scroll btn-next"
+                    data-action="1"
+                    aria-label="Next Slide">
+                <span class="visually-hidden">Next</span>
             </button>
         </div>
+
         <p class="error-msg"></p>
-    </div>
+    </section>
 
 
 <script src="script.js"></script>

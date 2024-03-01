@@ -1,3 +1,7 @@
+:root {
+    --var-arrow-size : 5vw;
+}
+
 *, ::before, ::after {
     box-sizing: border-box;
     margin: 0;
@@ -9,6 +13,12 @@ body {
     background: #111;
 }
 
+h1 {
+    color: #fff;
+    text-align: center;
+    margin: 20px 0;
+}
+
 .slider {
     position: relative;
 }
@@ -16,17 +26,17 @@ body {
 .slides {
     display: flex;
     /*overflow: hidden;*/
-    max-width: 90%;
+    max-width: 100%;
     margin: 0 auto;
     overflow-x: auto;
     scroll-snap-type: x mandatory; /* Pour le support de snap */
     /*
-     Utilisation de Scroll Snap
-     CSS Scroll Snap permet à votre slider de "se verrouiller" sur un élément spécifique
-     (dans ce cas, une image) lors du défilement, garantissant ainsi que l'utilisateur voit
-     toujours une image complète à la fin du défilement.
-     Pour cela, vous pouvez utiliser les propriétés scroll-snap-type sur le conteneur et
-     scroll-snap-align sur les enfants (les images).
+         Utilisation de Scroll Snap
+         CSS Scroll Snap permet à votre slider de "se verrouiller" sur un élément spécifique
+         (dans ce cas, une image) lors du défilement, garantissant ainsi que l'utilisateur voit
+         toujours une image complète à la fin du défilement.
+         Pour cela, vous pouvez utiliser les propriétés scroll-snap-type sur le conteneur et
+         scroll-snap-align sur les enfants (les images).
     */
     scrollbar-width: none; /* pour Firefox */
     -ms-overflow-style: none;  /* pour Internet Explorer 10+ */
@@ -37,11 +47,6 @@ body {
 }
 
 .slider-img {
-    /*
-    width: 100%;
-    height: auto;
-    flex: 1 0 auto;
-    */
     object-fit: cover;
     flex: 0 0 auto; /* Ne pas grandir, ne pas rétrécir, base auto */
     width: 100vw;
@@ -53,39 +58,53 @@ body {
     position: absolute;
     padding:0;
     cursor: pointer;
-    width: 48px;
-    height: 48px;
+    width: var(--var-arrow-size);
+    height: var(--var-arrow-size);
     background-color: transparent;
-    border: 0;
+
+    border-color: #000;
+    border-top: 0;
+    border-bottom: 6px solid;
+    border-left: 6px solid;
+    border-right: 0;
+    box-shadow: -6px 5px 6px #fff;
+    border-radius: 5px;
+
+    transition: all .2s ease-out;
 }
 
-.btn-previous, .btn-next {
+.btn-scroll:focus-visible {
+    outline: 3px solid #46b5fa;
+    outline-offset: 3px;
+    border-radius: 1px;
+}
+
+.btn-previous,
+.btn-next {
     top: 50%;
-    transform: translateY(-50%);
 }
 
 .btn-previous {
-    left: 6%;
-    transform: rotate(45deg);
+    left: 2%;
+    transform: rotate(45deg) translateY(-50%);
+}
+.btn-previous:hover {
+    transform: scale(1.1) rotate(45deg) translateY(-50%);
+}
+.btn-previous:active {
+    transform: scale(.9) rotate(45deg) translateY(-50%);
 }
 
 .btn-next {
-    right: 6%;
-    transform: rotate(-135deg);
+    right: 2%;
+    transform: rotate(-135deg) translate(50%, 0%);
 }
 
-.btn-previous::before, .btn-next::before {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    border-color: #000;
-    border-bottom: 6px solid;
-    border-left: 6px solid;
+.btn-next:hover {
+    transform: scale(1.1) rotate(-135deg) translate(50%, 0%);
 }
-
-.btn-scroll:active {
-    transform: scale(.9);
+.btn-next:active {
+    transform: scale(.9) rotate(-135deg) translate(50%, 0%);
 }
 
 .error-msg {
@@ -99,10 +118,15 @@ body {
     padding: 10px;
 }
 
-.active {
-    display: block;
-}
-
-.v-hidden {
-    visibility: hidden;
+.visually-hidden {
+    position: absolute;
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0,0,0,0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
 }

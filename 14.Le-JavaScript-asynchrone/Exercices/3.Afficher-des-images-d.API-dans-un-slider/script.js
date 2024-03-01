@@ -38,19 +38,25 @@ getCATImg(jsonTheCatAPI);
 const slidesElt = document.querySelector(".slides");
 
 function creatImg(data) {
-    data.forEach((image) => {
+    data.forEach((image, index, array) => {
         const imageElt = document.createElement("img");
+        let slideNumber = index += 1;
 
         imageElt.className = "slider-img";
         imageElt.src = image.url;
         imageElt.id = image.id;
+        imageElt.ariaRoleDescription = `slide`;
+        imageElt.ariaLabel =  `Slide ${slideNumber} of ${array.length} : Cat image ${slideNumber}`;
+        imageElt.alt = ``;
+        imageElt.width = image.width;
+        imageElt.height = image.height;
         slidesElt.appendChild(imageElt);
     });
 }
 
 
 /*
-    Create slider navigation
+    Create slider control
 */
 function sliderNavigation () {
     let currentIndex = 0;
@@ -89,24 +95,35 @@ function sliderNavigation () {
     */
     let touchStartX = 0;
     let touchEndX = 0;
+    let touchStartY = 0;
+    let touchEndY = 0;
 
     slidesElt.addEventListener('touchstart', (e) => {
         touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY; // Capture également la position verticale de départ
     }, false);
 
     slidesElt.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].clientX;
+        touchEndY = e.changedTouches[0].clientY; // Capture également la position verticale de fin
         handleGesture();
     }, false);
 
     function handleGesture() {
-        if (touchEndX < touchStartX) {
-            console.log('Swiped Left');
-            currentIndex = (currentIndex + 1) % images.length;
-        } else if (touchEndX > touchStartX) {
-            console.log('Swiped Right');
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-        }
-        scrollToImage(currentIndex);
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+
+        // Vérifie si le mouvement est principalement horizontal
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+            // Maintenant, traitez le mouvement comme un glissement horizontal
+            if (deltaX < 0) {
+                console.log('Swiped Left');
+                currentIndex = (currentIndex + 1) % images.length;
+            } else {
+                console.log('Swiped Right');
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+            }
+            scrollToImage(currentIndex);
+        } // Ajouter un else si besoin de faire des actions pour le mouvement vertical
     }
 }

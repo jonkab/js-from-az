@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Manipuler le DOM</title>
+    <script type="module" src="app.js"></script>
+    <style>
+        .f-size {
+            font-size: 18px;
+        }
+
+        .link--green {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Manipuler le DOM</h1>
+<p>Le DOM est construit d'éléments HTML</p>
+
+<h2>Ici jouons avec l'élément "demoGetInfoDOM"</h2>
+<ul id="id-demoGetInfoDOM" class="demoGetInfoDOM f-size" style="color: blue;">
+    <li>Démo pour récupérer les infos du DOM</li>
+    <li>Manipuler le DOM se fait grâce à plein de propriétés et méthodes comme celle-ci</li>
+</ul>
+
+<h3>Pour obtenir différentes informations de cet élément voici quelques méthodes et propriétés :</h3>
+<ul>
+    <li>element.getAttribute('attribut') // Permet de récupérer la valeur d'un attribut</li>
+    <li>element.style // Permet de récupérer les styles associés à l'élément</li>
+    <li>element.classList // Permet de récupérer la liste des classes associées à un élément</li>
+    <li>element.innerHTML // Renvoie le contenu HTML de l'élément</li>
+    <li>element.innerText // Renvoie le texte "visuellement rendu" de l'élément</li>
+    <li>element.textContent // Renvoie le texte de l'élément</li>
+</ul>
+<p>ℹ️ On peut voir ces informations retournées dans les logs</p>
+
+<hr>
+
+<h2>Ici jouons avec l'élément "demo2SetInfoDOM" et ses éléments enfants</h2>
+<h3>Modifier des éléments du DOM :</h3>
+<ul>
+    <li>element.setAttribute('href', 'www.google.fr') //Créé un attribut et lui donne une valeur</li>
+    <li>element.style.fontSize = '18px' //Accède à une propriété CSS puis lui donne une valeur</li>
+    <li>element.classList.add('red') link--green") //Accède à la list des class puis lui en ajoute</li>
+    <li>element.innerHTML = '&lt;p&gt;&lt;/p&gt;' //Insère et crée du HTML</li>
+    <li>element.innerText = 'Bonjour' //Ajoute du texte</li>
+</ul>
+
+<p>ℹ️ On peut voir dans le fichier app.js ce que ces méthodes ont fait dans l'élément DOM "demo2SetInfoDOM" qui suit :</p>
+<div id="id-demo2SetInfoDOM" class="demo2SetInfoDOM">
+    <div class="box-link">
+        <a class="link-demo-2">Google</a>
+    </div>
+    <div class="box-parag-demo-2">
+
+    </div>
+</div>
+
+
+<hr>
+
+
+<h2>Ici nous allons voir comment traverser le DOM</h2>
+<p>Un document HTML n'est au final qu'un arbre d'éléments HTML et de noeuds textes qu'il est possible de parcourir de différentes manières. Cet arbre est appellé le DOM.</p>
+
+<img src="arbre-dom.png" alt="Arbre DOM" width="500" height="335">
+<p>Quand on récupère un élément dans la page on récupère en fait un noeud dans le DOM. Il est possible de naviguer dans l'arbre à partir d'un élément préalablement récupéré.</p>
+
+<h3>Voyons des méthodes permettant de récupérer ou renvoyer des éléments ou des nœuds du DOM :</h3>
+
+<ul>
+    <li>element.childNodes // Renvoie tous les nœuds enfant (même les noeuds textes) "object NodeList"</li>
+    <li>element.children // Renvoie tous les nœuds éléments "object HTMLCollection"</li>
+    <li>element.firstChild // Récupère le premier nœud enfant "object HTMLElement"</li>
+    <li>element.firstElementChild // Récupère le premier enfant de type element "object HTMLElement" si pas de nœud texte avant car sinon renvoie null</li>
+    <li>element.previousElementSibling // Renvoie l'élément précédant de celui spécifié "object HTMLElement" si pas de nœud texte avant car sinon renvoie null</li>
+    <li>element.nextElementSibling // Renvoie l'élément qui vient après celui spécifié "object HTMLElement" si pas de nœud texte avant car sinon renvoie null</li>
+</ul>
+
+<div id="id-demo3TraverseDOM" class="demo3TraverseDOM">
+    <div class="box-link">
+        <p>Ici une balise &lt;i&gt;(italic) et une balise &lt;b&gt;(bold) ont été placé de sorte de montrer l'usage de "previousElementSibling" et "nextElementSibling"</p>
+        <i>Italic</i><a class="link-demo-3" href="https://developer.mozilla.org/fr/"><strong>Doc MDN</strong></a><b>Gras</b>
+    </div>
+    <div class="box-parag-demo-3">
+        <p>MDN veut dire en anglais "Mozilla Developer Network"</p>
+    </div>
+</div>
+
+
+<hr>
+
+
+<h2>Ici nous allons voir comment modifier le DOM</h2>
+<p>On peut aussi créer et modifier des éléments grâce à différentes méthodes</p>
+
+<ul>
+    <li>element.appendChild(enfant) // ajoute un élément à un autre</li>
+    <li>element.append(enfant) // ajoute un élément à un autre</li>
+    <li>element.remove() // supprime l'élément du DOM</li>
+    <li>parentElement.insertBefore(nouvelElement, refElement)</li>
+    <li>parentElement.insertAdjacentHTML('beforebegin', nouvelElement)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+<hr>
+    <div id="hello">
+        Bonjour les gens
+    </div>
+
+    <ul class="demo3">
+        <li>Lorem ipsum</li>
+        <li>Lorem </li>
+        <li>Ipsum</li>
+    </ul>
+
+</body>
+</html>

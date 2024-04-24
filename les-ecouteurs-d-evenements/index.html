@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Les écouteurs d'évènements</title>
+    <script type="module" src="app.js" defer></script>
+    <style>
+        body {
+            font-size: 16px;
+            line-height: 1.3;
+            font-family: sans-serif;
+        }
+        .syntax-lang {
+            background-color: #000;
+            color: #A9B1D6;
+        }
+        .javascript-lang {
+            --base: #A9B1D6;
+            --comment: #5D6791;
+            --variables: #BB9AF7;
+            --number: #FD914E;
+            --attribute: #FD914E;
+            --string: #9ECE6A;
+            --title: #7AA2F7;
+            --keyword: #BB9AF7;
+        }
+
+        .type-comment, .type-quote {color: var(--comment);}
+        .type-addition, .type-bullet, .type-string, .type-symbol {color: var(--string);}
+        .type-keyword, .type-selector-tag {color: var(--keyword);}
+        .type-built_in, .type-builtin-name, .type-link, .type-literal, .type-meta, .type-number, .type-params, .type-type {color: var(--number);}
+    </style>
+</head>
+<body>
+
+<h1>Ecouter les évènements du DOM</h1>
+<p>La plupart du temps on attendra un évènement pour effectuer une action. Par exemple, nous allons déclencher une action lors d'un clic sur un élément particulier. Pour faire cela on va avoir besoin d'utiliser un écouteur d'évènement grâce à la méthode addEventListener.</p>
+
+<h2>Créer un écouteur</h2>
+<pre class="syntax-lang">
+    <code class="javascript-lang">
+        element.addEventListener(<span class="type-string">"Type d'évènement"</span>, callback)
+        <span class="type-comment">// Par exemple pour détecter un clic sur un lien </span>
+        element.addEventListener(<span class="type-string">'click'</span>, <span class="type-function"><span class="type-keyword">function</span> (<span class="type-params"></span>) </span>{
+            <span class="type-built_in">window</span>.alert(<span class="type-string">'Vous avez cliqué sur le lien'</span>)
+        })
+    </code>
+</pre>
+
+<h3>L'évènement</h3>
+<p>Le callback passé en second paramètre prend en paramètre l'évènement (le type de la variable dépendra de l'évènement écouté).</p>
+
+<pre class="syntax-lang">
+    <code class="javascript-lang">
+        <span class="type-comment">// Par exemple pour détecter un clic sur un lien </span>
+        element.addEventListener(<span class="type-string">'click'</span>, <span class="type-function"><span class="type-keyword">function</span> (<span class="type-params">e</span>) </span>{
+            e.preventDefault() <span class="type-comment">// Annule l'évènement</span>
+            e.stopPropagation() <span class="type-comment">// Empèche l'évènement de remonter vers les éléments parents</span>
+            e.target <span class="type-comment">// contient l'élément sur lequel on a cliqué</span>
+            e.currentTarget <span class="type-comment">// contient l'élément sur lequel on a greffé l'écouteur </span>
+        })
+    </code>
+</pre>
+
+<p>Cet évènement peut aussi permettre d'obtenir plus d'informations suivant les cas (la touche sur laquelle on a appuyé, la position de la souris...)</p>
+
+
+<h3>this</h3>
+<p></p>
+
+
+<h3>Les options</h3>
+<p></p>
+
+
+<h2>Supprimer un évènement</h2>
+<p></p>
+
+
+</body>
+</html>

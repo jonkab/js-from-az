@@ -87,12 +87,37 @@ function registerWithForOf(arg, element) {
 registerWithForOf(registerData, registerForOfElt);
 
 
+console.log(`
+// Exercice "décompte"
+`);
+const countDownElt = document.querySelector(".countDown");
+const msgUserForWritingNumber = "Entrez un nombre";
+
+function countDown(msg, element) {
+    const dataPrompt = prompt(msg);
+
+    if (dataPrompt > 10 || dataPrompt < 0) {
+        console.log("Le nombre n'est pas entre 0 et 10");
+    } else {
+        for (let i = dataPrompt; i >= 0; i--) {
+            console.log(i);
+            const li = document.createElement('li');
+            const liContent = i;
+
+            li.textContent = liContent;
+            element.appendChild(li);
+        }
+    }
+}
+
+//countDown(msgUserForWritingNumber, countDownElt);
 
 
+console.log(`
+// Deviner le chiffre
+`);
 
-
-
-
+let guess = 8;
 
 
 

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fonction removeDuplicates(arr) - .filter() & Set</title>
+  <script type="module" src="app.js" defer></script>
+  <style>
+    body {
+      font-size: 16px;
+      line-height: 1.3;
+      font-family: sans-serif;
+      background-color: darkgray;
+    }
+    .syntax-lang {
+      background-color: #000;
+      color: #A9B1D6;
+    }
+    .javascript-lang {
+      --base: #A9B1D6;
+      --comment: #5D6791;
+      --variables: #BB9AF7;
+      --number: #FD914E;
+      --attribute: #FD914E;
+      --string: #9ECE6A;
+      --title: #7AA2F7;
+      --keyword: #BB9AF7;
+    }
+
+    .type-comment, .type-quote {color: var(--comment);}
+    .type-addition, .type-bullet, .type-string, .type-symbol {color: var(--string);}
+    .type-keyword, .type-selector-tag {color: var(--keyword);}
+    .type-built_in, .type-builtin-name, .type-link, .type-literal, .type-meta, .type-number, .type-params, .type-type {color: var(--number);}
+  </style>
+</head>
+<body>
+  <h1>Fonction <code>removeDuplicates(arr)</code></h1>
+
+  <h2>Code complet</h2>
+  <pre class="syntax-lang">
+    <code class="javascript-lang">
+      <span class="type-keyword">function</span> removeDuplicates(arr) {
+        <span class="type-keyword">return</span> arr.filter((item, index) => arr.indexOf(item) === index);
+      }
+
+      <span class="type-built_in">console</span>.log(removeDuplicates([<span class="type-number">5</span>, <span class="type-number">5</span>, <span class="type-number">4</span>, <span class="type-number">6</span>, <span class="type-number">3</span>, <span class="type-number">5</span>])); <span class="type-comment">// Sortie : [5, 4, 6, 3]</span>
+    </code>
+  </pre>
+
+  <p>La fonction <code>removeDuplicates(arr)</code> a pour objectif de retourner un nouveau tableau sans les valeurs en doublon en utilisant la méthode <code>.filter()</code> de JavaScript et une fonction de rappel (callback).</p>
+
+  <h2>Fonctionnement étape par étape</h2>
+
+  <h3>1. La méthode <code>.filter()</code></h3>
+  <ul>
+    <li><strong>Syntaxe</strong> : <code>arr.filter(callback(element, index, array))</code></li>
+    <li><strong>Description</strong> : Elle crée un nouveau tableau en incluant uniquement les éléments pour lesquels la fonction de rappel retourne <code>true</code>.</li>
+    <li><strong>Processus</strong> : Elle parcourt chaque élément du tableau <code>arr</code> et applique la fonction de rappel.</li>
+  </ul>
+
+  <h3>2. La fonction de rappel <code>(item, index) => arr.indexOf(item) === index</code></h3>
+  <ul>
+    <li><code>item</code> : l’élément courant du tableau lors de l’itération.</li>
+    <li><code>index</code> : l’indice de l’élément courant.</li>
+    <li><code>arr.indexOf(item)</code> : renvoie l’indice de la première occurrence de <code>item</code> dans le tableau <code>arr</code>.</li>
+  </ul>
+
+  <h3>3. Le mécanisme pour éliminer les doublons</h3>
+  <ul>
+    <li><strong>Condition</strong> : <code>arr.indexOf(item) === index</code></li>
+    <ul>
+      <li>Vérifie si l’indice de la première occurrence de l’élément est égal à l’indice courant.</li>
+      <li>Si la condition est vraie, cela signifie que c’est la première fois que l’élément apparaît dans le tableau, donc il est inclus.</li>
+      <li>Si la condition est fausse, l’élément est un doublon et est donc exclu du nouveau tableau.</li>
+    </ul>
+  </ul>
+
+  <h2>Illustration avec l’exemple <code>[5, 5, 4, 6, 3, 5]</code></h2>
+  <ul>
+    <li><strong>Itération 1</strong> :
+      <ul>
+        <li><code>item = 5</code>, <code>index = 0</code></li>
+        <li><code>arr.indexOf(5) = 0</code></li>
+        <li><code>0 === 0</code> ➔ <code>true</code> ➔ Inclure <code>5</code></li>
+      </ul>
+    </li>
+    <li><strong>Itération 2</strong> :
+      <ul>
+        <li><code>item = 5</code>, <code>index = 1</code></li>
+        <li><code>arr.indexOf(5) = 0</code></li>
+        <li><code>0 === 1</code> ➔ <code>false</code> ➔ Exclure <code>5</code></li>
+      </ul>
+    </li>
+    <li><strong>Itération 3</strong> :
+      <ul>
+        <li><code>item = 4</code>, <code>index = 2</code></li>
+        <li><code>arr.indexOf(4) = 2</code></li>
+        <li><code>2 === 2</code> ➔ <code>true</code> ➔ Inclure <code>4</code></li>
+      </ul>
+    </li>
+    <li><strong>Itération 4</strong> :
+      <ul>
+        <li><code>item = 6</code>, <code>index = 3</code></li>
+        <li><code>arr.indexOf(6) = 3</code></li>
+        <li><code>3 === 3</code> ➔ <code>true</code> ➔ Inclure <code>6</code></li>
+      </ul>
+    </li>
+    <li><strong>Itération 5</strong> :
+      <ul>
+        <li><code>item = 3</code>, <code>index = 4</code></li>
+        <li><code>arr.indexOf(3) = 4</code></li>
+        <li><code>4 === 4</code> ➔ <code>true</code> ➔ Inclure <code>3</code></li>
+      </ul>
+    </li>
+    <li><strong>Itération 6</strong> :
+      <ul>
+        <li><code>item = 5</code>, <code>index = 5</code></li>
+        <li><code>arr.indexOf(5) = 0</code></li>
+        <li><code>0 === 5</code> ➔ <code>false</code> ➔ Exclure <code>5</code></li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>Résultat final</h3>
+  <p>Le nouveau tableau est <code>[5, 4, 6, 3]</code>, sans doublons.</p>
+
+  <h2>En résumé</h2>
+  <ul>
+    <li>La fonction utilise <code>arr.filter()</code> pour parcourir le tableau original.</li>
+    <li>La fonction de rappel vérifie si chaque élément est sa première occurrence dans le tableau.</li>
+    <li>Seuls les éléments dont l’indice correspond à la première occurrence sont inclus dans le nouveau tableau.</li>
+    <li>Les doublons sont exclus car leur indice ne correspond pas à l’indice de leur première occurrence.</li>
+  </ul>
+
+  <h2>Alternative pour de grands tableaux</h2>
+  <pre class="syntax-lang">
+    <code class="javascript-lang">
+      <span class="type-keyword">function</span> removeDuplicates(arr) {
+        <span class="type-keyword">return</span> [...<span class="type-built_in">new</span> <span class="type-keyword">Set</span>(arr)];
+      }
+    </code>
+  </pre>
+
+  <h2>Explication de l'utilisation de Set et de l'opérateur spread</h2>
+  <p>L’objet Set retire automatiquement les doublons. Cependant, l’utilisation de l’opérateur spread (...) dans l’exemple que j’ai donné a une raison bien précise : transformer le Set en un tableau.</p>
+
+  <h3>1. L’objet Set</h3>
+  <p>Un Set est une collection d’éléments uniques en JavaScript. Lorsque tu crées un Set, il élimine automatiquement les doublons, donc si tu lui passes un tableau contenant des valeurs en doublon, elles seront supprimées.</p>
+  <pre class="syntax-lang">
+    <code class="javascript-lang">
+      <span class="type-keyword">const</span> mySet = <span class="type-keyword">new</span> <span class="type-keyword">Set</span>([<span class="type-number">5</span>, <span class="type-number">5</span>, <span class="type-number">4</span>, <span class="type-number">6</span>, <span class="type-number">3</span>, <span class="type-number">5</span>]);
+      <span class="type-built_in">console</span>.log(mySet); <span class="type-comment">// Sortie : Set { 5, 4, 6, 3 }</span>
+    </code>
+  </pre>
+  <p>Ici, mySet est un objet de type Set, pas un tableau. Il contient uniquement les valeurs uniques, mais il n’est pas possible d’accéder directement aux éléments comme avec un tableau (par exemple, via les index). Le Set est un type de collection particulier en JavaScript qui ne fonctionne pas exactement comme un tableau.</p>
+
+  <h3>2. Pourquoi l’opérateur spread (...) ?</h3>
+  <p>L’opérateur spread est utilisé pour décomposer les éléments d’un objet itérable (comme un Set) dans un tableau ou une autre structure.</p>
+  <pre class="syntax-lang">
+    <code class="javascript-lang">
+      <span class="type-keyword">const</span> myArray = [...mySet];
+    </code>
+  </pre>
+  <p>Tu transformes le Set en un tableau. C’est important parce que dans beaucoup de cas, tu veux obtenir un tableau que tu peux manipuler comme d’habitude (avec des méthodes comme .map(), .filter(), etc.).</p>
+  <p>Dans mon exemple précédent, j’ai utilisé le spread pour convertir le Set (qui élimine les doublons) en un tableau contenant les valeurs uniques.</p>
+
+  <h3>Exemple complet</h3>
+  <pre class="syntax-lang">
+    <code class="javascript-lang">
+      <span class="type-keyword">function</span> removeDuplicates(arr) {
+        <span class="type-keyword">return</span> [...<span class="type-built_in">new</span> <span class="type-keyword">Set</span>(arr)];
+      }
+    </code>
+  </pre>
+  <p>Ce que fait ce code :</p>
+  <ul>
+    <li><code>new Set(arr)</code> : Crée un Set à partir du tableau <code>arr</code>, éliminant les doublons.</li>
+    <li><code>[...new Set(arr)]</code> : Utilise l’opérateur spread pour convertir ce Set en un tableau contenant uniquement les valeurs uniques.</li>
+  </ul>
+
+  <h3>Pourquoi ne pas simplement retourner le Set ?</h3>
+  <pre class="syntax-lang">
+    <code class="javascript-lang">
+      <span class="type-keyword">function</span> removeDuplicates(arr) {
+        <span class="type-keyword">return</span> <span class="type-keyword">new</span> <span class="type-keyword">Set</span>(arr);
+      }
+    </code>
+  </pre>
+  <p>Le résultat serait un Set plutôt qu’un tableau. Par exemple :</p>
+  <pre class="syntax-lang">
+    <code class="javascript-lang">
+      <span class="type-built_in">console</span>.log(removeDuplicates([<span class="type-number">5</span>, <span class="type-number">5</span>, <span class="type-number">4</span>, <span class="type-number">6</span>, <span class="type-number">3</span>, <span class="type-number">5</span>]));
+      <span class="type-comment">// Sortie : Set { 5, 4, 6, 3 }</span>
+    </code>
+  </pre>
+  <p>Bien que ce soit une collection de valeurs uniques, elle est sous forme de Set, pas de tableau. Et dans beaucoup de situations, comme le traitement de données ou l’interface utilisateur, tu veux souvent manipuler un tableau, car c’est un type de structure de données plus courant avec des méthodes intégrées spécifiques.</p>
+
+  <h3>Conclusion</h3>
+  <p>L’opérateur spread (...) est utilisé ici pour convertir le Set en un tableau, car bien que le Set retire automatiquement les doublons, il est souvent plus pratique d’utiliser un tableau dans de nombreux cas en JavaScript. Cela te permet d’appliquer toutes les méthodes de tableau habituelles et de manipuler les données plus facilement.</p>
+</body>
+</html>
